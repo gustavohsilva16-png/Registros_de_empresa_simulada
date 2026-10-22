@@ -111,3 +111,8 @@ app.delete("/livro/:id", async (req, res) => {
         res.status(404).json({ "message": "Tarefa não encontrado!" });
     }
 });
+
+// Faz o servidor começar a rodar e "ficar ouvindo" as chamadas na porta escolhida
+app.listen(PORTA, () => {
+    console.log(`Servidor rodando em http://localhost:${PORTA}`);
+});
