@@ -1,0 +1,26 @@
+info:
+  name: Untitled 3
+  type: http
+
+http:
+  method: POST
+  url: http://localhost:3000
+  body:
+    type: json
+    data: |-
+      
+      {
+        "nome": "Estudar Express e MariaDB",
+        "descricao": "Criar rotas da API e integrar com o banco de dados",
+        "responsavel": "Desenvolvedor",
+        "data_tarefa": "2026-10-27",
+        "concluido": 0
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+​

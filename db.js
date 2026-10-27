@@ -1,14 +1,16 @@
-import mariadb from 'mariadb';
+import mysql from 'mysql2/promise';
+import dotenv from 'dotenv';
 
-// Adicionado o 'export' aqui no início da função
-export function conectarBanco() {
-    const con = mariadb.createPool({
-        host: process.env.DB_HOST,
-        user: process.env.DB_USER,
-        password: process.env.DB_PASS,
-        database: process.env.DB_NAME,
-        port: process.env.DB_PORT
-    });
-    
-    return con;
-}
+dotenv.config();
+
+// Cria a piscina de conexões com o MySQL
+const con = mysql.createPool({
+    host: process.env.DB_HOST || 'localhost',
+    user: process.env.DB_USER || 'root',
+    password: process.env.DB_PASSWORD || '',
+    database: process.env.DB_NAME || 'nome_do_seu_banco',
+    port: process.env.DB_PORT || 3306
+});
+
+// Exportação padrão para bater com "import con from './db.js'"
+export default con;
